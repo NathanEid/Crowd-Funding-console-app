@@ -4,4 +4,5 @@
 
 ## Crowd-Funding console app
 
-Crowdfunding is a way to raise money for an individual or organization by collecting donations through family, friends, friends of friends, strangers, businesses, and more. By using social media, people can reach more potential donors than traditional forms of fundraising.
+Crowdfunding is the practice of funding a project or venture by raising small amounts of money from a large number of people, typically via the Internet. 
+Crowdfunding is a form of crowdsourcing and alternative finance. In 2015, over US$34 billion was raised worldwide by crowdfunding. (From Wikipedia) The aim of the project: Create a console app to start fundraise projects.
