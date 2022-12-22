@@ -27,30 +27,42 @@ def setProjectId():
 
 
 def deleteProject(userid):
-    projectid = setProjectId()
-    projects = getUserProjects()
-    projectslenth = len(projects)
-    for item in projects:
-        if item[0] == projectid and item[6] == f"{userid}\n":
-            projects.remove(item)
-    if projectslenth != len(projects):
-        try:
-            file = open("projectInfo.txt", "w")
-            for project in projects:
-                file.write(
-                    f"{project[0]}:{project[1]}:{project[2]}:{project[3]}:{project[4]}:{project[5]}:{project[6]}")
-            file.close()
-            print("===========================================")
-            print("=    This Project Deleted Successfully    =")
-            print("===========================================")
-        except Exception as e:
-            print("======================================================")
-            print(f"There is an Error {e}")
-            print("======================================================")
+    try:
+        checkeForEmpty = getUserProjects()
+        if len(checkeForEmpty) != 0:
+            projectid = setProjectId()
+            projects = getUserProjects()
+            projectslenth = len(projects)
+            for item in projects:
+                if item[0] == projectid and item[6] == f"{userid}\n":
+                    projects.remove(item)
+            if projectslenth != len(projects):
+                try:
+                    file = open("projectInfo.txt", "w")
+                    for project in projects:
+                        file.write(
+                            f"{project[0]}:{project[1]}:{project[2]}:{project[3]}:{project[4]}:{project[5]}:{project[6]}")
+                    file.close()
+                    print("===========================================")
+                    print("=    This Project Deleted Successfully    =")
+                    print("===========================================")
+                except Exception as e:
+                    print("======================================================")
+                    print(f"There is an Error {e}")
+                    print("======================================================")
 
-    else:
-        print("===========================================")
-        print("=         Not Found This Project          =")
-        print("===========================================")
+            else:
+                print("===========================================")
+                print("=         Not Found This Project          =")
+                print("===========================================")
+        else:
+            print("===================================================================")
+            print(f"There are no Projects for Delete exist in your account")
+            print("===================================================================") 
 
+    except Exception as e:
+        print("====================================================================================================")
+        print(f"Failed to Open the file its not exist. {e}")
+        print("=====================================================================================================")
+    
     Pro.projectMenu(userid)
